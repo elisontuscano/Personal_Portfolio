@@ -5,6 +5,7 @@ if(empty($_GET['user']))
   {  $user='';}
 else 
   { $user= $_GET['user'];}
+//echo $_SESSION['login'];
 
 ?>
 
@@ -33,13 +34,23 @@ else
     <li><a href="Portfolio.php">Portfolio</a></li>
     <li><a href="Blog.php">Blog</a></li>
     <li><a href="Hireme.php">Hire me</a></li>
-    <?php if (empty($_SESSION['login'])) { ?>
+
+    <?php #admin option
+    if (!empty($_SESSION['login'])) {
+      
+     if($_SESSION['login'] == 'elison'){?>   
+    <li><a href="adminpage.php">Admin</a></li>
+    <?php } } ?> 
+
+    <?php #no user option
+    if (empty($_SESSION['login'])) { ?>
     <li><a href="login.php">login</a></li>
     <li><a href="Signup.php">Signup</a></li>
     <?php }
-      else {?>
+      else {#logout option
+        ?>
     <li><a href="logout.php">logout</a></li>
-    <?php } ?>    
+    <?php }  ?>
     <div class="footer"><p>&copy;DiazApps ALL Rights Reserved By <mark>Elison M Tuscano</mark></p></div>
 </ul>
 </div>

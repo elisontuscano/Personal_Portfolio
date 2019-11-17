@@ -28,6 +28,12 @@ session_start();
     <li><a href="Portfolio.php">Portfolio</a></li>
     <li><a href="Blog.php">Blog</a></li>
     <li><a href="Hireme.php">Hire me</a></li>
+    <?php #admin option
+    if (!empty($_SESSION['login'])) {
+      
+     if($_SESSION['login'] == 'elison'){?>   
+    <li><a href="adminpage.php">Admin</a></li>
+    <?php } } ?> 
     <?php if (empty($_SESSION['login'])) { ?>
     <li><a href="login.php">login</a></li>
     <li><a href="Signup.php">Signup</a></li>
@@ -45,13 +51,21 @@ session_start();
     </span>
   </div>
 
+<?php
+  include('connect.php');  
+  
+$sql = "SELECT * FROM aboutme";
+$result = $conn->query($sql);
 
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) { ?>
 
   <div class="aboutleft">
 
-    <img src="Images/eli.jpg"  width="250" height="325">
+    <img src="Images/<?php echo $row['imagename'] ; ?>"  width="250" height="325">
 
-    <h2 style="margin-top: 10px;margin-left: 25%;">Developer / 3D Designer</h2>
+    <h2 style="margin-top: 10px;margin-left: 25%;"><?php echo $row['skillname'] ; ?></h2>
     
   </div>
 
@@ -64,8 +78,8 @@ session_start();
         <td >Email</td>
       </tr>
       <tr>
-        <td class="shift" style="padding-right: 100px;">Elison Tuscano</td>
-        <td>elisontuscano@gmail.com</td>
+        <td class="shift" style="padding-right: 100px;"><?php echo $row['name'] ; ?></td>
+        <td><?php echo $row['email'] ; ?></td>
       </tr>
       <tr style="margin-top: 20px;">
         <td rowspan="2"><img src="Images/amphone.png"></td>
@@ -75,7 +89,7 @@ session_start();
       </tr>
       <tr>
         <td class="shift" style="padding-right: 100px; padding-left: 10px;">01234567890</td>
-        <td>11 March 1998</td>
+        <td><?php echo $row['dob'] ; ?></td>
       </tr>
       <tr style="margin-top: 20px;">
         <td rowspan="2"><img src="Images/amlocation.png"></td>
@@ -84,11 +98,19 @@ session_start();
         <td >Nationality</td>
       </tr>
       <tr>
-        <td class="shift" style="padding-right: 100px;">Alexandria, Egypt</td>
-        <td>Indian</td>
+        <td class="shift" style="padding-right: 100px;"><?php echo $row['address'] ; ?></td>
+        <td><?php echo $row['nationality'] ; ?></td>
       </tr>
 
     </table>
+
+  <?php 
+  }
+
+} else {
+    echo "0 results";
+}
+  ?>
 
     <p>Social Profiles:
     <a href="#" class="fa fa-facebook"></a>

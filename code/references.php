@@ -25,6 +25,12 @@ session_start();
     <li><a href="Portfolio.php">Portfolio</a></li>
     <li><a href="Blog.php">Blog</a></li>
     <li><a href="Hireme.php">Hire me</a></li>
+    <?php #admin option
+    if (!empty($_SESSION['login'])) {
+      
+     if($_SESSION['login'] == 'elison'){?>   
+    <li><a href="adminpage.php">Admin</a></li>
+    <?php } } ?> 
     <?php if (empty($_SESSION['login'])) { ?>
     <li><a href="login.php">login</a></li>
     <li><a href="Signup.php">Signup</a></li>

@@ -42,6 +42,18 @@ elseif ($table=='hire') {
 	$tid='hid';
 }
 
+elseif ($table=='resume') {
+	$tid='rid';
+}
+
+elseif ($table=='aboutme') {
+	$tid='aid';
+}
+elseif ($table=='portfolio') {
+	$tid='pid';
+}
+
+
 
 echo $id;
 echo $field;

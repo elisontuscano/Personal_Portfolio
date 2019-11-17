@@ -180,6 +180,60 @@ $conn->close();
 </div>
 
 
+<!-- *****************************aboutme*************************-->  
+  <div class="table">
+    <h1>About me</h1>
+  
+<?php
+  include('connect.php');  
+  
+$sql = "SELECT * FROM aboutme";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    echo "<table><tr><th>ID</th><th>Image Name</th><th>Name</th><th>Phone</th><th>Date of Birth</th><th>Address</th><th>Email</th><th>Nationality</th></tr>";
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "<tr><td>" . $row["aid"]. "</td><td>" . $row["imagename"]. " </td><td>" . $row["name"]. "</td><td>" . $row["phone"]. "</td><td>" . $row["dob"]. "</td><td>" . $row["address"]. "</td><td>" . $row["email"]. "</td><td>" . $row["nationality"]. "</td></tr>";
+    }
+    echo "</table>";
+} else {
+    echo "0 results";
+}
+
+$conn->close();
+?> 
+
+</div>
+
+
+<!-- *****************************Portfolio*************************-->  
+
+<div class="table">
+    <h1>Portfolio</h1>
+  
+<?php
+  include('connect.php');  
+  
+$sql = "SELECT * FROM portfolio";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    echo "<table><tr><th>Id</th><th>Image Name</th><th>Domain</th></tr>";
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "<tr><td>" . $row["pid"]. "</td><td>" . $row["imagename"]. " </td><td>" . $row["domain"]. "</td></tr>";
+    }
+    echo "</table>";
+} else {
+    echo "0 results";
+}
+
+$conn->close();
+?> 
+
+</div>
+
 <!-- *****************************resume*************************-->  
 
 <div class="table">

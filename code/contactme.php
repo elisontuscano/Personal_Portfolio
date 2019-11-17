@@ -7,6 +7,7 @@ session_start();
 <head>
   <link href="css/portfolio.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Rajdhani' rel='stylesheet'>
   <script type="text/javascript" src="js/portfolio.js"></script>
   <title>Contact Me </title>
@@ -22,9 +23,16 @@ session_start();
     <li><a href="About.php">About</a></li>
     <li><a href="Skills.php">Skills</a></li>
     <li><a href="Resume.php">Resume</a></li>
+    <li><a href="references.php">References</a></li>
     <li><a href="Portfolio.php">Portfolio</a></li>
     <li><a href="Blog.php">Blog</a></li>
     <li><a class="active" href="Hireme.php">Hire me</a></li>
+    <?php #admin option
+    if (!empty($_SESSION['login'])) {
+      
+     if($_SESSION['login'] == 'elison'){?>   
+    <li><a href="adminpage.php">Admin</a></li>
+    <?php } } ?> 
     <?php if (empty($_SESSION['login'])) { ?>
     <li><a href="login.php">login</a></li>
     <li><a href="Signup.php">Signup</a></li>

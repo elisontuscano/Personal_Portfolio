@@ -99,6 +99,20 @@ Hire <input type="radio" onclick="javascript:Check();" name="table" id="hire"><b
 
     <br><br>
 
+    <div id="checked" >
+        <form action="deleteentry.php?table=<?php echo 'resume';?>&&idname=<?php echo 'rid';?>" method="POST" align="left">
+            <p align="left">Resume Delete</p>
+            <hr>
+            <b>Enter ID:</b><br>
+            <input type="number" name="id" id='id' size="80" required><br><br>
+            <hr>
+            
+                 <button type="submit" class="submit" style="float:right;" onclick="#">Delete</button>            
+        </form>
+    </div>
+
+    <br><br>
+
 
 
 <script >

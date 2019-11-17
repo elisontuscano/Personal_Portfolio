@@ -16,6 +16,7 @@ else
 if(empty($id=$_POST['id'])){
 	$message="Field Cannot be empty";
 	header('location: delete.php?error='.$message.'') ;
+	exit;
 }
 
 else{

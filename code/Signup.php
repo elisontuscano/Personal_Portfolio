@@ -52,7 +52,7 @@
             <b>User:</b><br>
             <input type="text" name="user" id="user" size="80" required><br><br>
             <b>Password:</b><br>
-            <input type="password" name="password" id="password" size="80" required><br><br>
+            <input type="password" name="password" id="password" size="80" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required><br><br>
             <b>Repeat password:</b><br>
             <input type="password" name="repassword" id="repassword" size="80" required><br><br>
             <hr>
